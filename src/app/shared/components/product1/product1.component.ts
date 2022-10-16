@@ -43,7 +43,8 @@ export class Product1Component {
   products1: any[] = [
     {
       id: 1,
-      img: '../../../../assets/img/products/f1.jpg',
+      // img: '../../../../assets/img/products/f1.jpg',
+      img: '/docs/assets/img/products/f1.jpg',
       mark: 'adidas',
       title: 'Cartoon T-Shirts 0f1',
       price: '70',
