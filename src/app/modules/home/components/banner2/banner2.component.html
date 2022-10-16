@@ -1,0 +1,8 @@
+<section id="banner2" class="section-p1 flex flex-wrap justify-between sm:gap-4 md:gap-0">
+  <div class="banner-box {{bnr.cls}}" *ngFor="let bnr of bnrs; let i = index">
+    <h4 class="text-white text-xl font-light">{{bnr.head}}</h4>
+    <h2 class="text-white text-3xl font-extrabold">{{bnr.main}}</h2>
+    <span class="text-white text-sm font-medium pb-[15px]">{{bnr.p}}</span>
+    <button class="btn-trans">{{bnr.btn}}</button>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<div *ngIf="pro1" class="pro-container">
+  <div class="pro" *ngFor="let item of products1; let i = index">
+    <img class="w-full rounded-[20px]" src="{{item.img}}" alt="">
+    <div class="text-start py-3 px-0  leading-none">
+      <span class="text-prod text-xs">{{item.mark}}</span>
+      <h5 class="text-txtMain text-sm pt-[7px] font-bold leading-none">{{item.title}}</h5>
+      <div>
+        <i *ngFor="let n of starLoop(5)" class="fas fa-star text-star text-xs"></i>
+      </div>
+      <h4 class="text-primary text-15-px font-bold pt-[7px]">{{item.price| currency : 'USD' : 'symbol' : '1.0-0'}}
+      </h4>
+    </div>
+    <a routerLink="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
+  </div>
+</div>
+<div *ngIf="pro2" class="pro-container">
+  <div class="pro" *ngFor="let item of products2; let i = index">
+    <img class="w-full rounded-[20px]" src="{{item.img}}" alt="">
+    <div class="text-start py-3 px-0  leading-none">
+      <span class="text-prod text-xs">{{item.mark}}</span>
+      <h5 class="text-txtMain text-sm pt-[7px] font-bold leading-none">{{item.title}}</h5>
+      <div>
+        <i *ngFor="let n of starLoop(5)" class="fas fa-star text-star text-xs"></i>
+      </div>
+      <h4 class="text-primary text-15-px font-bold pt-[7px]">{{item.price | currency : 'USD' : 'symbol' : '1.0-0'}}
+      </h4>
+    </div>
+    <a routerLink="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
+  </div>
+</div>

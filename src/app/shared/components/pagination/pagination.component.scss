@@ -1,0 +1,6 @@
+#pagination a {
+  @apply font-semibold text-white bg-primary rounded-[4px] no-underline py-[10px] px-5 cursor-pointer;
+  & i {
+    @apply font-semibold text-base;
+  }
+}

@@ -1,0 +1,10 @@
+a {
+  @apply text-inherit text-xs font-bold uppercase no-underline duration-300 relative hover:text-primary;
+  &::after {
+    @apply content-[''] w-9 h-px bg-black absolute top-1 left-[120px] duration-300;
+  }
+  &:hover::after {
+    @apply w-[50px] bg-primary;
+  }
+}
+

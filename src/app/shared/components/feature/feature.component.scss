@@ -1,0 +1,41 @@
+#feature .fe-box {
+  @apply text-center w-[180px] py-6 px-4 my-4 mx-0
+  shadow-feature border border-featBorder rounded-[4px] duration-300 hover:shadow-featureHover;
+  & h6 {
+    @apply inline-block px-2 pt-[9px] pb-[6px] rounded-[4px] text-primary bg-feat1 leading-none;
+  }
+  &:nth-child(2) h6 {
+    @apply bg-feat2;
+  }
+  &:nth-child(3) h6 {
+    @apply bg-feat3;
+  }
+  &:nth-child(4) h6 {
+    @apply bg-feat4;
+  }
+  &:nth-child(5) h6 {
+    @apply bg-feat5;
+  }
+  &:nth-child(6) h6 {
+    @apply bg-feat6;
+  }
+}
+
+// Media QUery
+@media (max-width:799px) {
+  #feature {
+    @apply justify-center;
+    & .fe-box {
+      @apply m-4;
+    }
+  }
+}
+
+@media (max-width:477px) {
+  #feature {
+    @apply justify-between;
+    & .fe-box {
+      @apply m-0 mb-6 w-[155px];
+    }
+  }
+}

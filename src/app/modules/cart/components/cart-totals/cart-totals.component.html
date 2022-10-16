@@ -1,0 +1,31 @@
+<section id="cart-add" class="section-p1 flex justify-center">
+  <div class="subtotal bg-slate-50 md:w-2/3 sm:w-full mb-7 p-7 border boredr-formBorder2">
+    <h3 class="font-bold mb-4">Cart Totals</h3>
+    <table class="w-full border-collapse mb-5">
+      <tr>
+        <td>Cart Subtotal</td>
+        <td>{{subtotal | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+      </tr>
+      <tr>
+        <td>Shipping</td>
+        <td *ngIf="subtotal">{{shipping | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+        <td *ngIf="!subtotal">Free</td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td *ngIf="subtotal"><strong>{{total | currency : 'USD' : 'symbol' : '1.0-0'}}</strong></td>
+        <td *ngIf="!subtotal">{{0 | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+      </tr>
+    </table>
+    <div class="m-auto w-fit">
+      <button class="normal !bg-primary !text-white" (click)="checkout()">Proceed to checkout</button>
+    </div>
+  </div>
+  <!-- Alert Proceed -->
+  <div *ngIf="alertMassage" class="alert" role="alert">
+    <i class="fas fa-check-circle w-6 text-correct"></i>
+    <div class="text-correct text-lg">
+      Your Order is <strong>Proceed</strong>.
+    </div>
+  </div>
+</section>

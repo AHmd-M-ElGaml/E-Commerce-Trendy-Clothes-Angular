@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* General */
+* {
+  @apply m-0 p-0 box-border;
+  font-family: 'League Spartan', sans-serif;
+}
+
+h1 {
+  @apply md:text-50-px sm:text-38-px leading-[64px] text-txtMain;
+}
+
+h2 {
+  @apply md:text-46-px sm:text-32-px font-bold leading-[54px] text-txtMain;
+}
+
+h4 {
+  @apply text-xl text-txtMain;
+}
+
+h6 {
+  @apply text-xs font-light text-txtMain;
+}
+
+p {
+  @apply text-base mt-4 mb-5 mx-0  text-txtP;
+}
+
+.section-p1 {
+  @apply lg:py-10 lg:px-20 md:p-10 sm:p-5;
+}
+.section-m1 {
+  @apply my-10 mx-0;
+}
+
+button.normal {
+  @apply text-sm font-semibold py-[15px] px-[30px] text-black bg-white
+  cursor-pointer outline-none border-none rounded duration-300 ease-linear;
+}
+
+button.btn-trans {
+  @apply text-sm font-semibold py-3 px-[18px] text-white bg-transparent
+  cursor-pointer outline-none border border-white rounded-sm duration-300 ease-linear;
+}
+
+body {
+  @apply w-full;
+}
+
+
+

@@ -1,0 +1,22 @@
+<section id="form-details">
+  <form class="lg:w-3/5 md:w-1/2 sm:w-full md:mb-0 sm:mb-7 flex flex-col items-start">
+    <span class="text-txtPrimary3 text-xs font-semibold uppercase">Leave A Message</span>
+    <h2 class="text-txtPrimary text-26-px py-5 px-0 leading-8">We love to hear from you</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="text" placeholder="E-mail">
+    <input type="text" placeholder="Subject">
+    <textarea cols="30" rows="4" placeholder="Your Message"></textarea>
+    <button class="normal !text-white !bg-primary">Submit</button>
+  </form>
+  <div class="lg:my-0 md:my-auto">
+    <div class="flex md:items-start sm:items-center pb-8" *ngFor="let person of persons; let i = index">
+      <img src="{{person.img}}" alt="" class="w-16 h-16 object-cover md:mr-4 sm:mr-7 md:ml-0 sm:ml-4">
+      <p class="m-0 text-sm leading-5"><span class="block text-black text-base font-semibold">{{person.name}}</span>
+        <strong>Senior
+          Marketing Manager</strong> <br> Phone: + 000 123 000
+        77 88 <br> Email:
+        contact@example.com
+      </p>
+    </div>
+  </div>
+</section>

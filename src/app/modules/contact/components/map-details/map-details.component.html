@@ -1,0 +1,19 @@
+<section id="contact-details" class="section-p1 flex md:flex-row sm:flex-col items-center justify-between">
+  <div class="md:w-[40%] sm:w-full md:mb-0 sm:mb-7">
+    <span class="text-txtPrimary3 text-xs font-semibold uppercase">Get in Touch</span>
+    <h2 class="text-txtPrimary text-26-px py-5 px-0 leading-8">Visit one of our agancy location or contact us today</h2>
+    <h3 class="text-base font-bold pb-3">Head Office</h3>
+    <ul>
+      <li *ngFor="let contact of contacts; let i = index" class="flex list-none px-0 py-2">
+        <i class="{{contact.icon}} text-txtPrimary3  text-sm pr-6"></i>
+        <p class="text-sm m-0">{{contact.detail}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="md:w-[55%] sm:w-full h-[400px]">
+    <iframe class="w-full h-full"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25228.798184745257!2d-122.45321436871214!3d37.77598162628496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2seg!4v1660566364241!5m2!1sen!2seg"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>

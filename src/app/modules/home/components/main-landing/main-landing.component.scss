@@ -1,0 +1,20 @@
+#landing {
+  @apply h-screen w-full bg-mainLanding bg-cover py-0 px-20 flex flex-col items-start justify-center bg-[top_25%_right_0] ;
+  & button {
+    @apply bg-transparent bg-mainBtn bg-no-repeat text-primary border-0
+    pt-3 pb-4 pr-20 pl-16 text-17-px font-bold cursor-pointer
+    duration-300 hover:pl-17;
+  }
+}
+//  Media Query
+@media (max-width:799px) {
+  #landing {
+    @apply h-[70vh] py-0 px-20 bg-[top_30%_right_30%];
+  }
+}
+
+@media (max-width:477px) {
+  #landing {
+    @apply h-[70vh] py-0 px-5 bg-center;
+  }
+}

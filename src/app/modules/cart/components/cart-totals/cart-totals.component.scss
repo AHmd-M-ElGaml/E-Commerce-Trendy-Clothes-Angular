@@ -1,0 +1,7 @@
+#cart-add .subtotal table td {
+  @apply w-1/2 p-3 text-sm border border-formBorder2;
+}
+
+.alert {
+  @apply fixed md:top-24 sm:top-18 px-5 py-3 rounded-md flex items-center justify-center gap-5 bg-green-200
+}

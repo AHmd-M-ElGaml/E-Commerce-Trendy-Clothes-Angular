@@ -1,0 +1,5 @@
+#banner {
+  @apply md:h-[20vh] sm:h-[40vh] lg:h-[40vh] w-full
+  flex flex-col justify-center items-center text-center bg-cover bg-center bg-banner;
+}
+

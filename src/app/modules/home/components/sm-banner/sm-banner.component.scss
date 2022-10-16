@@ -1,0 +1,9 @@
+.banner-box {
+  @apply lg:w-[30%] md:w-[28%] sm:w-[100%] h-[30vh] p-5 bg-smBnr1 bg-cover bg-center flex flex-col justify-center items-start;
+}
+.banner-box2 {
+  @apply bg-smBnr2;
+}
+.banner-box3 {
+  @apply bg-smBnr3;
+}

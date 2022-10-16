@@ -1,0 +1,16 @@
+footer {
+  & h4 {
+    @apply text-txtPrimary font-bold text-base pb-4;
+  }
+  & .col {
+    @apply flex flex-col items-start mb-5;
+  }
+  & a {
+    @apply text-[13px] no-underline text-txtPrimary mb-2 ;
+    &:hover {
+      @apply text-primary;
+    }
+    }
+}
+
+

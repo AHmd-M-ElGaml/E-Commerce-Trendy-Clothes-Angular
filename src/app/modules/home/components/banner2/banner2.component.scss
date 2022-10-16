@@ -1,0 +1,9 @@
+.banner-box {
+  @apply bg-cover bg-center flex flex-col items-start lg:w-[580px] sm:w-full lg:h-[50vh] md:h-[30vh] sm:h-[35vh] p-8 bg-banner2;
+  &:hover button {
+    @apply bg-primary border-primary;
+  }
+}
+.banner-box2 {
+  @apply bg-bnr3;
+}

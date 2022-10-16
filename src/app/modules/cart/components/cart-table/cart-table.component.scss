@@ -1,0 +1,7 @@
+#cart-table table td:nth-child(5) input {
+  @apply w-17 py-2 pr-1 pl-3 border rounded;
+}
+
+#cart-table table tbody tr td {
+  @apply pt-4 text-sm;
+}

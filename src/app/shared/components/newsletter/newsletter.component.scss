@@ -1,0 +1,12 @@
+#newsletter {
+  @apply flex justify-between items-center flex-wrap py-10 md:px-20 sm:px-5 bg-newsletter bg-newsImg bg-no-repeat ;
+  // bg-[20%_30%] ;
+}
+
+#newsletter input {
+  @apply w-full h-[51px] py-0 px-5 text-sm outline-none border border-transparent rounded-tl-[4px] rounded-bl-[4px];
+}
+
+#newsletter button {
+  @apply bg-primary text-white rounded-tl-[0px] rounded-bl-[0px] whitespace-nowrap;
+}

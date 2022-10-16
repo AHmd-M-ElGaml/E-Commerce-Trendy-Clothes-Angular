@@ -1,0 +1,32 @@
+<!-- Details Product -->
+<section id="prodetails" class="section-p1 flex sm:flex-col md:flex-row mt-3 lg:items-start sm:items-center">
+  <div class="md:w-[40%] sm:w-[100%] md:mr-12 sm:mr-0">
+    <img src="{{imgSrc}}" width="100%" #mainImg alt="">
+    <div class="flex justify-between mt-1">
+      <div class="basis-[24%] cursor-pointer" *ngFor="let proImg of proImgs; let i = index">
+        <img src="{{proImg.img}}" width="100%" alt="" (click)="chooseImg(proImg.img)">
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 md:w-1/2 sm:w-full">
+    <h6 class="font-bold p-0">Home / T-Shirt</h6>
+    <h4 class="px-0 pt-8 pb-4 font-bold">{{titleProd}}</h4>
+    <h2 class="text-26-px">{{priceProd}}</h2>
+    <select class="block text-sm py-[5px] px-[10px] mb-[10px] border focus:outline-primary">
+      <option>Select Size</option>
+      <option>XL</option>
+      <option>XXL</option>
+      <option>Small</option>
+      <option>Large</option>
+    </select>
+    <input (change)="valChange($event)" type="number" value="{{valInput}}"
+      class="w-[50px] h-12 border pl-3 mr-3 text-base focus:outline-primary">
+    <button class="normal !text-white !bg-primary" (click)="addCart($event)">Add To Cart</button>
+    <h4 class="font-bold px-0 pt-7 pb-4">Product Details</h4>
+    <span class="leading-6">The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric
+      constructed from 100%
+      cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck
+      and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it all in the
+      ultimate head-turning package.</span>
+  </div>
+</section>

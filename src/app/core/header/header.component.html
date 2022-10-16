@@ -1,0 +1,18 @@
+<header>
+  <a href="#"><img src="../../../assets/img/logo.png" class="logo" alt="logo" /></a>
+  <nav>
+    <ul id="navbar" #nav>
+      <li *ngFor="let mainMenu of MainMenus; let i = index" id="{{mainMenu.id}}"><a class="{{mainMenu.class}}"
+          routerLink="{{mainMenu.href}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <i class="{{mainMenu.icon}} md:inline-block lg:hidden mr-3"></i>
+          {{mainMenu.title}}
+          <i class="{{mainMenu.cart}}"></i></a>
+      </li>
+      <a href="" id="close" #close (click)="closeMenu($event)"><i class="fas fa-times"></i></a>
+    </ul>
+  </nav>
+  <div id="toggle-menu">
+    <a routerLink="cart"><i class="fas fa-shopping-bag"></i></a>
+    <i #bar id="bar" (click)="openMenu()" class="fas fa-outdent"></i>
+  </div>
+</header>
