@@ -60,16 +60,20 @@ export class DetailsProductComponent{
   }
   proImgs: any[] = [
     {
-      img: '../../../../assets/img/products/f1.jpg',
+      // img: '../../../../assets/img/products/f1.jpg',
+      img: 'https://i.ibb.co/hfqFFX1/f1.jpg',
     },
     {
-      img: '../../../../assets/img/products/f2.jpg',
+      // img: '../../../../assets/img/products/f2.jpg',
+      img: 'https://i.ibb.co/ygcVds6/f2.jpg',
     },
     {
-      img: '../../../../assets/img/products/f3.jpg',
+      // img: '../../../../assets/img/products/f3.jpg',
+      img: 'https://i.ibb.co/WK6KjK9/f3.jpg',
     },
     {
-      img: '../../../../assets/img/products/f4.jpg',
+      // img: '../../../../assets/img/products/f4.jpg',
+      img: 'https://i.ibb.co/w7FnN39/f4.jpg',
     },
   ]
 
