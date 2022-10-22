@@ -13,10 +13,10 @@ const routes: Routes = [
     path: '',
     component: ShopPageComponent
   },
-  {
-    path: 'product-details',
-    component: SingleProductComponent
-  },
+  // {
+  //   path: 'product-details',
+  //   component: SingleProductComponent
+  // },
 ];
 
 @NgModule({

@@ -1,11 +1,17 @@
 .pro-container {
-  @apply  flex lg:justify-between sm:justify-center flex-wrap pt-5;
+  @apply  flex lg:justify-between sm:justify-center flex-wrap pt-5 text-center;
   & .pro {
     @apply md:w-[23%] sm:w-full min-w-[250px] p-3 my-4 lg:mx-0 md:mx-4 border border-featBorder
-    rounded-3xl cursor-pointer shadow-product duration-200 relative hover:shadow-productHover;
+    rounded-3xl shadow-product duration-200 hover:shadow-productHover;
     & .cart {
-      @apply flex items-center justify-center text-primary bg-cartPro w-9 h-9 rounded-full leading-[40px]
-      border border-featBorder absolute bottom-3 right-3;
+      @apply flex items-center justify-center text-primary bg-cartPro px-2 h-9 rounded-full leading-[40px]
+      border border-featBorder cursor-pointer after:duration-200 ease-linear
+      hover:after:content-['Add_Cart'] after:text-xs after:font-semibold
+      hover:after:ml-3 hover:after:mr-1 after:font-sans;
+    }
+    & .quantity {
+      @apply px-2 text-xl font-semibold text-primary bg-cartPro border border-featBorder rounded
     }
   }
 }
+

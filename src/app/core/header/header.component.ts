@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
-
+// FormsModule
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,9 +12,16 @@ export class HeaderComponent {
   @ViewChild('bar') bar!: ElementRef;
   @ViewChild('nav') nav!: ElementRef;
   @ViewChild('close') close!: ElementRef;
-
+  counter:any = 0;
   constructor(private router: Router, private dataService: DataService) {}
 
+  // counter items
+  ngOnInit(): void {
+    this.dataService.getProducts()
+    .subscribe(res=>{
+      this.counter = res.length;
+    })
+  }
   // Menu toggle
   openMenu() {
     if (this.bar) {

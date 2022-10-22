@@ -5,7 +5,7 @@ import { Product1Component } from './components/product1/product1.component';
 import { FeatureComponent } from './components/feature/feature.component';
 import { PagesHeaderComponent } from './components/pages-header/pages-header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PaginationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     FeatureComponent,

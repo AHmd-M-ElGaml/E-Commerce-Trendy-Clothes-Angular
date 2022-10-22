@@ -8,7 +8,11 @@ module.exports = {
       padding: "1rem !important",
     },
     important: true,
-    fontFamily: {},
+    fontFamily: {
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+    },
     boxShadow: {
       header: "0 5px 15px rgba(0, 0, 0, 0.06)",
       menu: "0 40px 60px rgba(0, 0, 0, 0.2)",

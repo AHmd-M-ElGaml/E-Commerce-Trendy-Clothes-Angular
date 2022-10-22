@@ -8,6 +8,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { HomeModule } from './modules/home/home.module';
 import { ShopModule } from './modules/shop/shop.module';
 import { CartModule } from './modules/cart/cart.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartModule } from './modules/cart/cart.module';
     AppRoutingModule,
     HomeModule,
     ShopModule,
-    CartModule
+    CartModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
 header {
   @apply flex items-center justify-between py-5 px-20 bg-bgHeader z-50 sticky top-0 left-0 shadow-header;
-
   & #navbar {
     @apply flex items-center justify-center;
     & li {
@@ -20,14 +19,17 @@ header {
       @apply hidden ;
     }
   }
-
   & #toggle-menu {
     @apply hidden items-center;
   }
 }
+//  Counter Items
+  .counter {
+    @apply bg-primary text-white font-semibold w-[14px] fixed flex justify-center items-center text-[10px] text-center rounded-full
+    lg:right-[90px] md:right-[112px] sm:right-[61px] lg:top-[26px] md:top-[27px] sm:top-[19px];
+  }
 
 // Media Query
-
 @media (max-width:799px) {
   header {
     & #navbar {
@@ -60,7 +62,6 @@ header {
   }
 
 }
-
 @media (max-width:477px) {
   header {
     @apply py-3 px-7;

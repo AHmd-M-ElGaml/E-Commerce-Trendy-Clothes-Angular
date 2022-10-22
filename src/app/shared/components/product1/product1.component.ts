@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { DetailsProductComponent } from './../../../modules/shop/components/details-product/details-product.component';
 
@@ -9,36 +9,58 @@ import { DetailsProductComponent } from './../../../modules/shop/components/deta
   styleUrls: ['./product1.component.scss']
 })
 export class Product1Component {
+  @ViewChildren('add') add!: QueryList<any>;
   @Input() public setStorage!: DetailsProductComponent;
   @Input() pro1!:boolean;
   @Input() pro2!:boolean;
   titleProd!:any;
   priceProd!:any;
   imgSrc!:any;
+  quantity!: any;
   constructor(private router: Router, private dataService: DataService) {
   }
-
+  // Show Cart Icon
+  showAdd(event: any) {
+    var addProd = event.target;
+    this.add.forEach((items:any) => {
+      items.nativeElement.classList.remove("hidden");
+      items.nativeElement.nextSibling.classList.add("hidden");
+      items.nativeElement.nextSibling.classList.remove("flex");
+    });
+    addProd.classList.add("hidden");
+    addProd.nextSibling.classList.remove("hidden")
+    addProd.nextSibling.classList.add("flex")
+  }
+  // Add Products to Cart
   addProduct(event: any) {
+    // window.localStorage.setItem("Product Title", this.titleProd);
+    // window.localStorage.setItem("Product Price", this.priceProd);
+    // window.localStorage.setItem("Product Img", this.imgSrc);
     var add = event.target;
-    var shopProd = add.parentElement.parentElement;
+    var shopProd = add.parentElement.parentElement.parentElement;
     this.imgSrc = shopProd.firstChild.src;
     this.titleProd = shopProd.firstChild.nextSibling.firstChild.nextSibling.innerText;
     this.priceProd = shopProd.firstChild.nextSibling.firstChild.nextSibling.nextSibling.nextSibling.innerText;
-    window.localStorage.setItem("Product Title", this.titleProd);
-    window.localStorage.setItem("Product Price", this.priceProd);
-    window.localStorage.setItem("Product Img", this.imgSrc);
-    // SetItems LocalStorage
-    if (window.location.pathname == '/shop/product-details') {
-      this.setStorage.ngOnInit();
+    this.quantity = shopProd.lastChild.firstChild.firstChild.nextSibling.value;
+    console.log(this.quantity)
+    var product : any = {
+      title: this.titleProd,
+      price: this.priceProd,
+      img: this.imgSrc,
+      quantity: this.quantity,
+      total: parseFloat(this.priceProd.replace("$", "")) * this.quantity,
     }
-    // routing to Details Products
-    if (window.location.pathname != 'shop/product-details') {
-      this.router.navigate(['shop/product-details']);
+    // Delete Old same Product.
+    for (let i = 0; i < this.dataService.cartItemList.length; i++) {
+      if (product.title == this.dataService.cartItemList[i].title) {
+        this.dataService.removeCartItem(product);
+      }
     }
+    // Add to Cart
+    this.dataService.addCart(product);
     // screen to top
-    window.scrollTo({top: 0, behavior: 'smooth'})
+    // window.scrollTo({top: 0, behavior: 'smooth'})
   }
-
 // Products
   products1: any[] = [
     {
