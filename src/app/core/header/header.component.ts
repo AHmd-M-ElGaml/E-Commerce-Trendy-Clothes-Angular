@@ -18,12 +18,13 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.dataService.getProducts()
     .subscribe(res=>{
-      this.counter = res.length
-      // var count = 0;
-      // res.forEach((e:any) => {
-      //   console.log(e.quantity)
-      //   count += e.quantity
-      // });
+      // this.counter = res.length
+      var count = 0;
+      res.forEach((e:any) => {
+        console.log(e.quantity)
+        count += e.quantity
+      });
+      return this.counter = count
     })
   }
   // Menu toggle
