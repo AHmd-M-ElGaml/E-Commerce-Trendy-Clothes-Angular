@@ -1,6 +1,6 @@
 <div *ngIf="pro1" class="pro-container">
   <div class="pro" *ngFor="let item of products1; let i = index">
-    <img class="w-full rounded-[20px]" src="{{item.img}}" alt="">
+    <img class="w-full rounded-[20px] cursor-pointer" (click)="detailsProd($event)" src="{{item.img}}" alt="">
     <div class="text-start pt-3 px-0  leading-none">
       <span class="text-prod text-xs">{{item.mark}}</span>
       <h5 class="text-txtMain text-sm pt-[7px] font-bold leading-none">{{item.title}}</h5>
@@ -10,26 +10,22 @@
       <h4 class="text-primary text-15-px font-bold pt-[7px]">{{item.price| currency : 'USD' : 'symbol' : '1.0-0'}}
       </h4>
     </div>
-    <button #add (click)="showAdd($event)"
-      class="normal !bg-featBorder hover:!bg-primary !text-txtPrimary hover:!text-white !px-6 !py-2">Add
-      Cart</button>
-    <div class="add-cart mt-2 justify-between hidden">
-      <!-- QUANTITY -->
-      <div class="flex justify-start items-center gap-2 mb-[2px]">
-        <button class="quantity"
-          onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
-        <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
-        <button class="quantity" onclick="previousSibling.value++">+</button>
-      </div>
-      <!-- Cart -->
-      <a routerLink="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
+    <!-- QUANTITY -->
+    <div class=" justify-center items-center gap-4 mb-[2px] mt-1 hidden">
+      <button class="quantity" (click)="downCounter($event)"
+        onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
+      <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
+      <button class="quantity" (click)="upCounter($event)">+</button>
     </div>
+    <!-- Cart -->
+    <a #add routerLink="" class="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
   </div>
 </div>
+
 <!-- New Products -->
 <div *ngIf="pro2" class="pro-container">
   <div class="pro" *ngFor="let item of products2; let i = index">
-    <img class="w-full rounded-[20px]" src="{{item.img}}" alt="">
+    <img class="w-full rounded-[20px] cursor-pointer" (click)="detailsProd($event)" src="{{item.img}}" alt="">
     <div class="text-start pt-3 px-0  leading-none">
       <span class="text-prod text-xs">{{item.mark}}</span>
       <h5 class="text-txtMain text-sm pt-[7px] font-bold leading-none">{{item.title}}</h5>
@@ -39,19 +35,14 @@
       <h4 class="text-primary text-15-px font-bold pt-[7px]">{{item.price| currency : 'USD' : 'symbol' : '1.0-0'}}
       </h4>
     </div>
-    <button #add (click)="showAdd($event)"
-      class="normal !bg-featBorder hover:!bg-primary !text-txtPrimary hover:!text-white !px-6 !py-2">Add
-      Cart</button>
-    <div class="add-cart mt-2 justify-between hidden">
-      <!-- QUANTITY -->
-      <div class="flex justify-start items-center gap-2 mb-[2px]">
-        <button class="quantity"
-          onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
-        <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
-        <button class="quantity" onclick="previousSibling.value++">+</button>
-      </div>
-      <!-- Cart -->
-      <a routerLink="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
+    <!-- QUANTITY -->
+    <div class=" justify-center items-center gap-4 mb-[2px] mt-1 hidden">
+      <button class="quantity" (click)="downCounter($event)"
+        onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
+      <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
+      <button class="quantity" (click)="upCounter($event)">+</button>
     </div>
+    <!-- Cart -->
+    <a #add routerLink="" class="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
   </div>
 </div>

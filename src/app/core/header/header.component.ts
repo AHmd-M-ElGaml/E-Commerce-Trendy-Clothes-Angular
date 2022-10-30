@@ -1,5 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 // FormsModule
@@ -12,14 +11,19 @@ export class HeaderComponent {
   @ViewChild('bar') bar!: ElementRef;
   @ViewChild('nav') nav!: ElementRef;
   @ViewChild('close') close!: ElementRef;
-  counter:any = 0;
+  counter:number = 0;
   constructor(private router: Router, private dataService: DataService) {}
 
   // counter items
   ngOnInit(): void {
     this.dataService.getProducts()
     .subscribe(res=>{
-      this.counter = res.length;
+      this.counter = res.length
+      // var count = 0;
+      // res.forEach((e:any) => {
+      //   console.log(e.quantity)
+      //   count += e.quantity
+      // });
     })
   }
   // Menu toggle

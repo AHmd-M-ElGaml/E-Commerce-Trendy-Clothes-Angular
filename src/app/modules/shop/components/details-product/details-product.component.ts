@@ -52,7 +52,7 @@ export class DetailsProductComponent{
   // Switch Images
   chooseImg(event: any) {
     this.mainImg.nativeElement.src = event;
-    var numbImg = event.substring(33, 34)
+    var numbImg = event.substring(event.length-4,event.length-5)
     window.localStorage.setItem("Product Price", '$70')
     window.localStorage.setItem("Product Title", 'Cartoon T-Shirts 0f'+ numbImg)
     window.localStorage.setItem("Product Img", event)

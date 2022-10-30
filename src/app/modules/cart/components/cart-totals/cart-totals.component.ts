@@ -27,7 +27,7 @@ export class CartTotalsComponent implements OnInit {
         this.dataService.removeAllCart();
         this.ngOnInit();
         this.alertMassage = false;
-        // this.router.navigate(['cart/empty-cart']);
+        this.router.navigate(['cart/empty-cart']);
       }, 2000);
     }
   }

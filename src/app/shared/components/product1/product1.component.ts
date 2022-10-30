@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
-import { DetailsProductComponent } from './../../../modules/shop/components/details-product/details-product.component';
+import { DetailsProductComponent } from 'src/app/modules/shop/components/details-product/details-product.component';
 
 @Component({
   selector: 'app-product1',
@@ -13,37 +13,33 @@ export class Product1Component {
   @Input() public setStorage!: DetailsProductComponent;
   @Input() pro1!:boolean;
   @Input() pro2!:boolean;
+  product!:any;
   titleProd!:any;
   priceProd!:any;
   imgSrc!:any;
-  quantity!: any;
+  quantity!: number;
   constructor(private router: Router, private dataService: DataService) {
   }
-  // Show Cart Icon
-  showAdd(event: any) {
-    var addProd = event.target;
-    this.add.forEach((items:any) => {
-      items.nativeElement.classList.remove("hidden");
-      items.nativeElement.nextSibling.classList.add("hidden");
-      items.nativeElement.nextSibling.classList.remove("flex");
-    });
-    addProd.classList.add("hidden");
-    addProd.nextSibling.classList.remove("hidden")
-    addProd.nextSibling.classList.add("flex")
-  }
+
   // Add Products to Cart
   addProduct(event: any) {
-    // window.localStorage.setItem("Product Title", this.titleProd);
-    // window.localStorage.setItem("Product Price", this.priceProd);
-    // window.localStorage.setItem("Product Img", this.imgSrc);
-    var add = event.target;
-    var shopProd = add.parentElement.parentElement.parentElement;
+    var addProd = event.target;
+    // Show Quantity
+    this.add.forEach((items:any) => {
+        items.nativeElement.classList.remove("hidden");
+        items.nativeElement.previousSibling.classList.remove("flex");
+        items.nativeElement.previousSibling.classList.add("hidden");
+    });
+    addProd.parentElement.classList.add("hidden");
+    addProd.parentElement.previousSibling.classList.remove("hidden")
+    addProd.parentElement.previousSibling.classList.add("flex")
+    // add product to Cart
+    var shopProd = addProd.parentElement.parentElement;
     this.imgSrc = shopProd.firstChild.src;
     this.titleProd = shopProd.firstChild.nextSibling.firstChild.nextSibling.innerText;
     this.priceProd = shopProd.firstChild.nextSibling.firstChild.nextSibling.nextSibling.nextSibling.innerText;
-    this.quantity = shopProd.lastChild.firstChild.firstChild.nextSibling.value;
-    console.log(this.quantity)
-    var product : any = {
+    this.quantity = shopProd.lastChild.previousSibling.firstChild.nextSibling.value;
+    this.product = {
       title: this.titleProd,
       price: this.priceProd,
       img: this.imgSrc,
@@ -52,16 +48,65 @@ export class Product1Component {
     }
     // Delete Old same Product.
     for (let i = 0; i < this.dataService.cartItemList.length; i++) {
-      if (product.title == this.dataService.cartItemList[i].title) {
-        this.dataService.removeCartItem(product);
+      if (this.product.title == this.dataService.cartItemList[i].title) {
+        this.dataService.removeCartItem(this.product);
       }
     }
     // Add to Cart
-    this.dataService.addCart(product);
-    // screen to top
-    // window.scrollTo({top: 0, behavior: 'smooth'})
+    this.dataService.addCart(this.product);
   }
-// Products
+  // Open Page Details Products
+  detailsProd(event:any) {
+    var detailsProd = event.target;
+    this.imgSrc = detailsProd.src;
+    this.titleProd = detailsProd.nextSibling.firstChild.nextSibling.innerText;
+    this.priceProd = detailsProd.nextSibling.lastChild.innerText;
+    window.localStorage.setItem("Product Title", this.titleProd);
+    window.localStorage.setItem("Product Price", this.priceProd);
+    window.localStorage.setItem("Product Img", this.imgSrc);
+    // router to Page Details Products
+    if (window.location.pathname != 'shop/product-details') {
+      this.router.navigate(['shop/product-details']);
+    }
+    // set Products localStorage
+    if (window.location.pathname == 'shop/product-details') {
+      this.setStorage.ngOnInit();
+    }
+    // scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+  // Counter Up & Down
+  downCounter(event:any) {
+  var down = event.target;
+  down.nextSibling.value--;
+  this.product.quantity--;
+  if (isNaN(down.nextSibling.value) || down.nextSibling.value <= 0) {
+    down.nextSibling.value = 1;
+    this.product.quantity = 1;
+  }
+  // Delete Old same Product.
+  for (let i = 0; i < this.dataService.cartItemList.length; i++) {
+    if (this.product.title == this.dataService.cartItemList[i].title) {
+      this.dataService.removeCartItem(this.product);
+    }
+  }
+  // Add to Cart
+  this.dataService.addCart(this.product);
+  }
+  upCounter(event:any) {
+  var up = event.target;
+  up.previousSibling.value++;
+  this.product.quantity++;
+  // Delete Old same Product.
+  for (let i = 0; i < this.dataService.cartItemList.length; i++) {
+    if (this.product.title == this.dataService.cartItemList[i].title) {
+      this.dataService.removeCartItem(this.product);
+    }
+  }
+  // Add to Cart
+  this.dataService.addCart(this.product);
+  }
+  // Products
   products1: any[] = [
     {
       id: 1,
@@ -194,8 +239,7 @@ export class Product1Component {
       price: '72',
     },
   ]
-
-// Loop Stars
+  // Loop Stars
   starLoop(n: number): Array<number> {
     return Array(n);
   }

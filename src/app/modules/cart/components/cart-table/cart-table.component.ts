@@ -30,9 +30,11 @@ export class CartTableComponent {
     // Component Cart Total Value Changing
     this.cartTotals.ngOnInit();
     // router to empty page if don't have any items
-    // if (this.dataService.cartItemList.length == 0) {
-    //   this.router.navigate(['cart/empty-cart']);
-    // }
+    if (this.dataService.cartItemList.length == 0) {
+      setTimeout(() => {
+        this.router.navigate(['cart/empty-cart']);
+      }, 700);
+    }
   }
   // UpDate Subtotal
   public changeTotal(item: any) {
