@@ -21,7 +21,6 @@ export class HeaderComponent {
       // this.counter = res.length
       var count = 0;
       res.forEach((e:any) => {
-        console.log(e.quantity)
         count += e.quantity
       });
       return this.counter = count

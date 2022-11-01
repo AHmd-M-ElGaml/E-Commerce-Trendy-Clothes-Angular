@@ -26,13 +26,14 @@ export class Product1Component {
     var addProd = event.target;
     // Show Quantity
     this.add.forEach((items:any) => {
-        items.nativeElement.classList.remove("hidden");
-        items.nativeElement.previousSibling.classList.remove("flex");
-        items.nativeElement.previousSibling.classList.add("hidden");
+        // items.nativeElement.classList.remove("hidden");
+        // items.nativeElement.previousSibling.classList.remove("flex");
+        // items.nativeElement.previousSibling.classList.add("hidden");
     });
     addProd.parentElement.classList.add("hidden");
     addProd.parentElement.previousSibling.classList.remove("hidden")
     addProd.parentElement.previousSibling.classList.add("flex")
+    addProd.parentElement.previousSibling.firstChild.nextSibling.value = 1;
     // add product to Cart
     var shopProd = addProd.parentElement.parentElement;
     this.imgSrc = shopProd.firstChild.src;
@@ -43,7 +44,7 @@ export class Product1Component {
       title: this.titleProd,
       price: this.priceProd,
       img: this.imgSrc,
-      quantity: this.quantity,
+      quantity: Number(this.quantity),
       total: parseFloat(this.priceProd.replace("$", "")) * this.quantity,
     }
     // Delete Old same Product.
@@ -80,10 +81,6 @@ export class Product1Component {
   var down = event.target;
   down.nextSibling.value--;
   this.product.quantity--;
-  if (isNaN(down.nextSibling.value) || down.nextSibling.value <= 0) {
-    down.nextSibling.value = 1;
-    this.product.quantity = 1;
-  }
   // Delete Old same Product.
   for (let i = 0; i < this.dataService.cartItemList.length; i++) {
     if (this.product.title == this.dataService.cartItemList[i].title) {
@@ -92,6 +89,14 @@ export class Product1Component {
   }
   // Add to Cart
   this.dataService.addCart(this.product);
+  if (isNaN(down.nextSibling.value) || down.nextSibling.value <= 0) {
+    down.nextSibling.value = 0;
+    // this.product.quantity = 1;
+    down.parentElement.nextSibling.classList.remove("hidden");
+    down.parentElement.classList.remove("flex")
+    down.parentElement.classList.add("hidden")
+    this.dataService.removeCartItem(this.product);
+  }
   }
   upCounter(event:any) {
   var up = event.target;

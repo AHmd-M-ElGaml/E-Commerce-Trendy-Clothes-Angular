@@ -12,8 +12,7 @@
     </div>
     <!-- QUANTITY -->
     <div class=" justify-center items-center gap-4 mb-[2px] mt-1 hidden">
-      <button class="quantity" (click)="downCounter($event)"
-        onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
+      <button class="quantity" (click)="downCounter($event)">-</button>
       <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
       <button class="quantity" (click)="upCounter($event)">+</button>
     </div>
