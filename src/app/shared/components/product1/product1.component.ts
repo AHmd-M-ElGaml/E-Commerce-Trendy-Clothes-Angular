@@ -11,8 +11,8 @@ import { DetailsProductComponent } from 'src/app/modules/shop/components/details
 export class Product1Component {
   @ViewChildren('add') add!: QueryList<any>;
   @Input() public setStorage!: DetailsProductComponent;
-  @Input() pro1!:boolean;
-  @Input() pro2!:boolean;
+  @Input() start!:number;
+  @Input() end!:number;
   product!:any;
   titleProd!:any;
   priceProd!:any;
@@ -47,6 +47,7 @@ export class Product1Component {
       quantity: Number(this.quantity),
       total: parseFloat(this.priceProd.replace("$", "")) * this.quantity,
     }
+    console.log(this.product)
     // Delete Old same Product.
     for (let i = 0; i < this.dataService.cartItemList.length; i++) {
       if (this.product.title == this.dataService.cartItemList[i].title) {
@@ -88,6 +89,7 @@ export class Product1Component {
     }
   }
   // Add to Cart
+  this.product.total = parseFloat(this.priceProd.replace("$", "")) * this.product.quantity;
   this.dataService.addCart(this.product);
   if (isNaN(down.nextSibling.value) || down.nextSibling.value <= 0) {
     down.nextSibling.value = 0;
@@ -109,10 +111,11 @@ export class Product1Component {
     }
   }
   // Add to Cart
+  this.product.total = parseFloat(this.priceProd.replace("$", "")) * this.product.quantity;
   this.dataService.addCart(this.product);
   }
   // Products
-  products1: any[] = [
+  products: any[] = [
     {
       id: 1,
       // img: '../../../../assets/img/products/f1.jpg',
@@ -177,8 +180,6 @@ export class Product1Component {
       title: 'Cartoon clothes 0f8',
       price: '60',
     },
-  ]
-  products2: any[] = [
     {
       id: 9,
       // img: '../../../../assets/img/products/n1.jpg',

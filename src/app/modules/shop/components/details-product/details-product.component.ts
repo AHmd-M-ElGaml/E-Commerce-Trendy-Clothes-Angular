@@ -13,7 +13,7 @@ export class DetailsProductComponent{
   titleProd!:any;
   priceProd!:any;
   imgSrc!:any;
-  valInput:any = 1;
+  valInput:number = 1;
   alertMassage:boolean = false;
   constructor(private router: Router, private dataService: DataService) {}
   // Get Data by localStorage
@@ -29,8 +29,8 @@ export class DetailsProductComponent{
       title: this.titleProd,
       price: this.priceProd,
       img: this.imgSrc,
-      quantity: this.valInput,
-      total: parseFloat(this.priceProd.replace("$", "")) * this.valInput,
+      quantity: Number(this.valInput),
+      total: parseFloat(this.priceProd.replace("$", "")) * Number(this.valInput),
     }
     // Delete Old same Product.
     for (let i = 0; i < this.dataService.cartItemList.length; i++) {

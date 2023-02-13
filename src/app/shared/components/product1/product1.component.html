@@ -1,5 +1,5 @@
-<div *ngIf="pro1" class="pro-container">
-  <div class="pro" *ngFor="let item of products1; let i = index">
+<div class="pro-container">
+  <div class="pro" *ngFor="let item of products.slice(start, end); let i = index">
     <img class="w-full rounded-[20px] cursor-pointer" (click)="detailsProd($event)" src="{{item.img}}" alt="">
     <div class="text-start pt-3 px-0  leading-none">
       <span class="text-prod text-xs">{{item.mark}}</span>
@@ -21,27 +21,3 @@
   </div>
 </div>
 
-<!-- New Products -->
-<div *ngIf="pro2" class="pro-container">
-  <div class="pro" *ngFor="let item of products2; let i = index">
-    <img class="w-full rounded-[20px] cursor-pointer" (click)="detailsProd($event)" src="{{item.img}}" alt="">
-    <div class="text-start pt-3 px-0  leading-none">
-      <span class="text-prod text-xs">{{item.mark}}</span>
-      <h5 class="text-txtMain text-sm pt-[7px] font-bold leading-none">{{item.title}}</h5>
-      <div>
-        <i *ngFor="let n of starLoop(5)" class="fas fa-star text-star text-xs"></i>
-      </div>
-      <h4 class="text-primary text-15-px font-bold pt-[7px]">{{item.price| currency : 'USD' : 'symbol' : '1.0-0'}}
-      </h4>
-    </div>
-    <!-- QUANTITY -->
-    <div class=" justify-center items-center gap-4 mb-[2px] mt-1 hidden">
-      <button class="quantity" (click)="downCounter($event)"
-        onclick="nextSibling.value--;if (isNaN(nextSibling.value) || nextSibling.value <= 0) {nextSibling.value = 1;}">-</button>
-      <input class="w-7 text-center outline-featBorder font-semibold text-primary" value="1" type="text" disabled>
-      <button class="quantity" (click)="upCounter($event)">+</button>
-    </div>
-    <!-- Cart -->
-    <a #add routerLink="" class="" (click)="addProduct($event)"><i class="fas fa-shopping-cart cart"></i></a>
-  </div>
-</div>
